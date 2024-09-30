@@ -1,6 +1,8 @@
 const express = require('express')
 const app = express()
 const cors = require("cors");
+const dotenv = require('dotenv');
+
 const corsOptions = {
   origin: "*",
   credentials: true,
@@ -10,6 +12,9 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 app.use(express.json())
+
+dotenv.config();
+
 
 const {initialiseDatabase} = require('./db/db.connect')
 const Product = require('./models/product.model')
